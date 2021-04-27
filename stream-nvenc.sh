@@ -1,8 +1,33 @@
 #!/bin/bash
+
+# DEFAULTS
+rtmpServer="" # Set to default location
+
 echo "NvEnc based livestreamer and recorder"
 mkdir -p Recordings
 filename=$(date +'%Y-%m-%d_%H:%M:%S')
-echo "Starting event: $filename"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+        -h|--help)
+                echo "[./stream-nvenc.sh -r] to enable recording"
+		echo "[./stream-nvenc.sh {stream}] to stream to $rtmpServer/{stream}]"
+                exit 0
+                ;;
+        -r)
+                toFile="-vcodec pores -acodec copy "'"'"Recordings/${filename}.mov"'"'""
+                shift
+                ;;
+        *)
+                rtmpServer+="/$1"
+                break
+                ;;
+  esac
+done
+
+echo " Server: $rtmpServer"
+echo " Starting event: $filename"
+
 ffmpeg \
 	-hide_banner \
 	-loglevel info \
@@ -20,6 +45,4 @@ ffmpeg \
 \
 	-f flv $rtmpServer \
 \
-	-vcodec prores \
-	-acodec copy \
-	 "Recordings/${filename}.mov"
+	$toFile
