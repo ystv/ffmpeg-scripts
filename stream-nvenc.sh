@@ -7,6 +7,8 @@ echo "NvEnc based livestreamer and recorder"
 mkdir -p Recordings
 filename=$(date +'%Y-%m-%d_%H:%M:%S')
 
+echo " Starting event: $filename"
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
         -h|--help)
@@ -15,7 +17,8 @@ while [[ $# -gt 0 ]]; do
                 exit 0
                 ;;
         -r)
-                toFile="-vcodec pores -acodec copy "'"'"Recordings/${filename}.mov"'"'""
+		echo " Set to Record"
+                toFile="-c:v pores -c:a copy "'"'"Recordings/${filename}.mov"'"'""
                 shift
                 ;;
         *)
@@ -26,7 +29,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo " Server: $rtmpServer"
-echo " Starting event: $filename"
+
 
 ffmpeg \
 	-hide_banner \
