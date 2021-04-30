@@ -49,6 +49,4 @@ ffmpeg \
 \
 	-ar 44100 \
 \
-	-f flv $rtmpServer \
-\
-	$toFile
+	-f flv $rtmpServer $toFile
