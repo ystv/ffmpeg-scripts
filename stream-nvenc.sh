@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # DEFAULTS
-rtmpServer="" # Set to default location
+baseURL="" 	# e.g. rtmp://stream.ystv.co.uk
+streamPath="" 	# e.g. internal/ob2
+
+rtmpServer="$baseURL$streamPath"
 
 echo "NvEnc based livestreamer and recorder"
 mkdir -p Recordings
@@ -18,7 +21,7 @@ while [[ $# -gt 0 ]]; do
                 ;;
         -r)
 		echo " Set to Record"
-                toFile="-c:v pores -c:a copy "'"'"Recordings/${filename}.mov"'"'""
+                toFile="-c:v prores -c:a copy "'"'"Recordings/${filename}.mov"'"'""
                 shift
                 ;;
         *)
