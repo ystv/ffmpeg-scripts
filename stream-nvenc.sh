@@ -4,7 +4,7 @@
 baseURL="" 	# e.g. rtmp://stream.ystv.co.uk
 streamPath="" 	# e.g. internal/ob2
 
-rtmpServer="$baseURL$streamPath"
+rtmpServer="$baseURL/$streamPath"
 
 echo "NvEnc based livestreamer and recorder"
 mkdir -p Recordings
