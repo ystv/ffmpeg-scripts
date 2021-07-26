@@ -10,7 +10,7 @@ homeOut="rtmp://stream.ystv.co.uk/internal/mixer"               # CHANGE TO PROP
 read -p "OB Pull point (e.g. mix/running): " obPullPoint
 read -p "LA1TV Play Path (e.g. ob1): " laPlayPath
 
-echo "If you want to record the stream, make sure you run ./roses21Recorder (in a tmux window or something)"
+echo "If you want to record the stream, make sure you run ./RTMP_recorder (in a tmux window or something)"
 
 while :; do
     ffmpeg -re -i "$homeIn/$obPullPoint" \
