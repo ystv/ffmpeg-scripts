@@ -15,8 +15,8 @@ echo " Starting event: $filename"
 while [[ $# -gt 0 ]]; do
   case "$1" in
         -h|--help)
-                echo "[./stream-nvenc.sh -r] to enable recording"
-		echo "[./stream-nvenc.sh {stream}] to stream to $rtmpServer/{stream}]"
+                echo "[./streamRTMP_nvenc.sh -r] to enable recording"
+		echo "[./streamRTMP_nvenc.sh {stream}] to stream to $rtmpServer/{stream}]"
                 exit 0
                 ;;
         -r)
