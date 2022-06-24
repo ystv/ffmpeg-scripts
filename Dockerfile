@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt update && apt install -y curl xz-utils
+RUN apt update && apt install -y curl xz-utils fontconfig
 WORKDIR /tmp
 RUN \
 curl -LO https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz && \
